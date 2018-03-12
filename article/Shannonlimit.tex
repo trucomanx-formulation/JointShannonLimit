@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Shannon limit}
+\label{Subsec:LimShannon}
+
+The Shannon limit for a communication channel is a theoretical maximum information rate 
+that can be transmitted on the channel for a given level of noise. Follow this idea
+and taking into account the Slepian-Wolf theorem (a system with multiple sources of 
+information), the Shannon limit is giving for
+\begin{equation} \label{eq:RCE}
+r \mathrm{R}_m \leq \mathrm{C}_m.
+\end{equation}
+In the last equation is stated that for to have a free noise communication 
+is necessary that the information rate $r \mathrm{R}_m$ transmit for each use of the channel coded
+(in the $m$-th channel) be less than channel capacity $\mathrm{C}_m$.
+
+\subsection{Shannon Limit for undistributed sources}
+\label{Subsubsec:LimShannonnaodist}
+In the case of undistributed sources, these are uncorrelated  and the equation (\ref{eq:RCE}) 
+is modified, following the $Slepian-Wolf$ theorem, with $\mathrm{R}_m=1.0$ (no redundant side information) obtaining
+\begin{equation} \label{eq:RCE2}
+r  \leq \mathrm{C}_m.
+\end{equation}
+For the case of a $BI$-$AWGN$ channel with hard decision output $\mathrm{C}_m$ is giving for
+\begin{equation} \label{eq:pcm}
+p_{cm}=Q(\sqrt{2 Es/ N_{0m}}),
+\end{equation}
+\begin{equation} \label{eq:Qsigma}
+\mathrm{C}_{m}=1-h(p_{cm}),
+\end{equation}
+where $p_{cm}$ is the channel error probability  of $m$-th channel, $Q(.)$ is the q-function defined 
+in (\ref{eq:Qsigma_}) and $h(.)$ is the binary entropy function defined in (\ref{eq:hbinary}).
+\begin{equation} \label{eq:Qsigma_}
+Q(x) \equiv \frac{1}{\sqrt{2\pi}} \int_x^\infty \exp\left(-\frac{u^2}{2}\right) \, du,
+\end{equation}
+\begin{equation}\label{eq:hbinary}
+ h(p)=-p~log_2(p)-(1-p)~log_2(1-p).
+\end{equation}
+Using the equations (\ref{eq:RCE2}) and (\ref{eq:Qsigma}),
+the Shannon limit inequality is giving for the next equation
+\begin{equation} \label{eq:shannonbiawgnhard}
+E_s/N_{0m} \geq \frac{\{Q^{-1}(h^{-1}(1-r))\}^2}{2}.
+\end{equation}
+being $Q^{-1}(.)$ and $h^{-1}(.)$ inverse functions of $Q(.)$ giving in the equation 
+(\ref{eq:Qsigma_}) and binary entropy (\ref{eq:hbinary}) respectively.
+Known that the energy for information bit of $m$-th channel ($E_{bm}$) is related with the energy for symbol 
+for $E_{bm} = E_s/r$, the next relation is obtained.
+\begin{equation} \label{eq:shannonbiawgnhard0}
+E_{bm}/N_{0m} \geq \frac{\{Q^{-1}(h^{-1}(1-r))\}^2}{2r}.
+\end{equation}
+
+
+\subsection{Shannon limit for distributed sources}
+\label{Subsubsec:LimShannondist}
+In the case of distributed sources for to obtain the Shannon limit for a $BI$-$AWGN$ channel 
+with hard decision output is used the equation (\ref{eq:RCE}) and (\ref{eq:Qsigma}), generating
+\begin{equation} \label{eq:shannonbiawgnhard2}
+E_s/N_{0m}  \geq \frac{\{Q^{-1}(h^{-1}(1-r \mathrm{R}_m))\}^2}{2  }.
+\end{equation}
+In the last equation, for obtain a relation with a bit energy $E_{bm}$ 
+is necessary understand first the information distribution in the Fig. \ref{fig:BSCeqv1}.
+\begin{figure}[!hbt]
+\centering \includegraphics[width=6cm]{{fig23.eps}}
+\caption{Energy $\hat{E}_{bm}$ for transmit one bit without redundant information.}
+\label{fig:BSCeqv1}
+\end{figure}
+In the figure can be show ${E}_{bm}$ and $\hat{E}_{bm}$,
+being this values the energy necessary for transmit one bit in each position.
+Known this, can be deduced that
+\begin{equation} \label{eq:EbEs}
+{E}_{bm}=\frac{E_s}{r},
+\end{equation}
+\begin{equation} \label{eq:hatEbEs}
+\hat{E}_{bm}=\frac{E_s}{r \mathrm{R}_m}.
+\end{equation}
+Where ${E}_{bm}$ is a energy for transmit one bit with redundant information
+(follow the $Slepian$-$Wolf$ theorem). In the other hand
+$\hat{E}_{bm}$ is a energy for transmit one bit without redundant information.
+Thus, using the equations (\ref{eq:shannonbiawgnhard2}) and 
+(\ref{eq:hatEbEs}) is obtained the Shannon limit for a channel $BI-AWGN$, with hard decision output, for correlated sources as
+\begin{equation} \label{eq:shannonbiawgn3}
+\hat{E}_{bm}/N_{0m} \geq \frac{\{Q^{-1}(h^{-1}(1-r \mathrm{R}_m))\}^2}{2 r \mathrm{R}_m}.
+\end{equation}
+In this context, we call this limit as ``Virtual Shannon Limit''(VSL).
+
+\begin{comment}[Comment 2]
+The VSL can be understand as the lower bound rate energy  limit ($\hat{E}_{bm}/N_{0m}$) for that 
+a without redundance bit (follow $Slepian$-$Wolf$ theorem) can be transmitted whitout error.
+\end{comment}
+
+
+
+\begin{example}[VSL for equal distributed correlated sources]
+In this example is assumed that all channel capacities
+$\mathrm{C}_m=\mathrm{C}$, and all sources
+$u^m$, $m \in \{1,2,..,M\}$ are equally distributed with $p_m=\rho$, in this way
+the joint entropy only depend of involved source numbers and the correlation
+between any pair of sources. Known this, we can to deduce for the symmetry in the example that
+all values $\mathrm{R}_m \equiv R$.
+%Assim, da equao (\ref{eq:ni0}) se obtm
+%\begin{equation} \label{eq:hiper1}
+%\frac{\mathrm{C}}{r} \geq R,
+%\end{equation}
+Thus, the $Slepian$-$Wolf$ theorem rewrite as
+\begin{equation} \label{eq:hiper2}
+\begin{matrix}
+R & \geq & \frac{H(u^1 u^2 ... u^{M})}{M}\\
+~          & \geq & \frac{H(M, \rho)}{M},
+\end{matrix}
+\end{equation}
+where $H({M}, \rho)$ represent the joint entropy of ${M}$ sources equally distributed
+with an error probability $\rho$ with a common source $u^0$.
+The last equation combine with the equation (\ref{eq:RCE}) generates the next restriction equation for $R$,
+\begin{equation} \label{eq:hiper21}
+\frac{\mathrm{C}}{r} \geq R  \geq \frac{H({M}, \rho)}{{M}}.
+\end{equation}
+This equation implies that for a code rate $r$, if ${\mathrm{C}}/{r}  \geq {H({M}, \rho)}/{{M}}$, them
+is possible the transmission of the information without error.
+Giving that in the design the a transmission system  is search send the minimal
+quantity of information, them the value of $R$ is
+\begin{equation} \label{eq:hiper3}
+R  = \frac{H({M}, \rho)}{{M}}.
+\end{equation}
+The calculus of $H({M}, \rho)$ can be seen in \cite{raheli2011} with the next equalities
+\begin{equation} \label{eq:raheli2011a}
+P({M},m_b)=\frac{1}{2}[\rho^{m_b}(1-\rho)^{M-m_b}+(1-\rho)^{m_b}{\rho}^{M-m_b}],
+\end{equation}
+\begin{equation} \label{eq:raheli2011b}
+H({M}, \rho)=\sum_{m_b=0}^{M}{\binom{M}{m_b}P({M},m_b)~log_2(P({M},m_b))}.
+\end{equation}
+Thus, the $VSL$ for this case is
+\begin{equation} \label{eq:shannonbiawgnhard4}
+\hat{E}_{bm}/{N}_{0m}  \geq \frac{\{Q^{-1}(h^{-1}(1-r \frac{H({M}, \rho)}{M} )\}^2}{2 r \frac{H({M}, \rho)}{M}}.
+\end{equation}
+\begin{figure}[!hbt]
+\centering \includegraphics[width=8cm]{{fig24.eps}}
+\caption{${H(\mathrm{M, \rho})}/{M}$ para distintos  valores de $\rho$ e $M$}
+\label{fig:hmm}
+\end{figure}
+\begin{comment}[Comment 3] In the equation (\ref{eq:hiper3}) 
+is easy see that if $\rho$ tend to zero then $R$ tend to $1/M$.
+This can be interpreted in equation (\ref{eq:shannonbiawgnhard4}) 
+as if only one source $u^0$ send the information
+with a codification rate of $r/M$ (code repticion). Also can be see that for a fix value of $\rho$
+and $M$ tending to infinity, $R$  tend to $h(\rho)$.
+The Fig. \ref{fig:hmm} show the value $R={H(M, \rho)}/{M}$
+for many values of  $\rho$ and $M$. 
+\end{comment}
+\label{ex:shannonequ}
+\end{example}
+
+
+\begin{example}[$VSL$ for a code rate $r=1/2$]
+In this case $M$ correlated sources with the same system transmission model that in the Example 
+\ref{ex:shannonequ} is used. Also is considered a hard-decision $BI$-$AWGN$ channel.
+\begin{figure}[!hbt]
+\centering \includegraphics[width=8cm]{{figr12-1.eps}}
+\caption{$VSL$ for a code rate $r=1/2$.}
+\label{fig:tax12}
+\end{figure}
+The Fig. \ref{fig:tax12} show the behavioral of $VSL$ curve in the right side of the equation (\ref{eq:shannonbiawgnhard4}), for a system 
+with a code rate $r=1/2$. We are show curves for four different values of  $\rho=\{0.005, 0.05, 0.1, 0.5\}$,
+these curves are plotted as a function of $M=\{1, 2, 3, 5, 10, 20, 30, 40, 100\}$.
+We find interesting note that the most improvement is founded with the first 10 sources, after this number
+the increment in the number of sources not leave improvement in $VSL$ curve, This will be important in the analysis
+of the bit error rate ($BER$) in the joint decoding algorithm.
+\label{ex:shannon1}
+\end{example}
+
+
+
+
